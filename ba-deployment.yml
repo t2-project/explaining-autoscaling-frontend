@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ba-frontend
+  namespace: default
+spec:
+  selector:
+    app: ba-frontend
+  ports:
+    - protocol: TCP
+      port: 4200
+      targetPort: 4200
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ba-frontend
+  namespace: default
+  labels:
+    app: ba-frontend
+spec:
+  selector:
+    matchLabels:
+      app: ba-frontend
+  template:
+    metadata:
+      labels:
+        app: ba-frontend
+    spec:
+      containers:
+      - name: ba-frontend
+        image: tbruell/ba-frontend:latest
+        ports:
+        - containerPort: 4200
+        imagePullPolicy: Always
+      serviceAccountName: default
