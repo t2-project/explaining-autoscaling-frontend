@@ -6,6 +6,6 @@ export class EventService {
     constructor(private http: HttpClient) {}
 
     getEventList() {
-        return this.http.get<[]>('http://ba.default.svc.cluster.local:3000/events');
+        return this.http.get('http://ba.default.svc.cluster.local:3000/events');
     }
 }
