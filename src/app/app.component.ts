@@ -27,10 +27,7 @@ export class AppComponent implements AfterViewInit {
 
 
   constructor(private eventService: EventService) {
-
-    
     this.loadEvents();
-    this.dataSource = new MatTableDataSource(this.eventList);
   }
   
   
