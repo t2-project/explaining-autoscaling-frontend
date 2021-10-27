@@ -19,7 +19,7 @@ export interface adaptionEvent {
 })
 export class EventsComponent implements OnInit {
   displayedColumns: string[] = ['createdAt','name', 'namespace', 'reason', 'message']
-  dataSource: MatTableDataSource<adaptionEvent> = new MatTableDataSource();
+  dataSource: MatTableDataSource<adaptionEvent>;
   eventList : any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -27,6 +27,7 @@ export class EventsComponent implements OnInit {
 
 
   constructor(private eventService: EventsService) {
+    this.dataSource = new MatTableDataSource();
     this.loadEvents();
   }
   
@@ -37,6 +38,7 @@ export class EventsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.loadEvents();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -48,12 +50,12 @@ export class EventsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     } }
 
-  loadEvents() {
-    this.eventService.getEventList().subscribe((response) => {
+  async loadEvents() {
+    await this.eventService.getEventList().subscribe((response) => {
       this.eventList = response;
       console.log(response);
       console.log(this.eventList);
-      this.dataSource = new MatTableDataSource(this.eventList)
+      this.dataSource.data = this.eventList; 
     })
   }
 
