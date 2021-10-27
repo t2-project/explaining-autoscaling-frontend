@@ -15,7 +15,7 @@ import { EventsComponent } from './events/events.component';
 import { SetsComponent } from './sets/sets.component';
 import { SetPageComponent } from './set-page/set-page.component';
 import { EventPageComponent } from './event-page/event-page.component';
-
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { EventPageComponent } from './event-page/event-page.component';
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
+    MatIconModule,
   ],
   providers: [EventsService],
   bootstrap: [AppComponent]

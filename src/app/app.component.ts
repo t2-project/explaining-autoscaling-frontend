@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface adaptionEvent {
   name: string;
@@ -14,5 +15,9 @@ export interface adaptionEvent {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private router: Router) {}
 
+  displayEventList() {
+    this.router.navigate(['events'])
+  }
 }

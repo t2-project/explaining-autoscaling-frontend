@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { EventsService } from './event.service';
 
 export interface adaptionEvent {
@@ -26,7 +27,7 @@ export class EventsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(private eventService: EventsService) {
+  constructor(private eventService: EventsService, private router: Router) {
     this.dataSource = new MatTableDataSource();
     this.loadEvents();
   }
@@ -57,6 +58,10 @@ export class EventsComponent implements OnInit {
       console.log(this.eventList);
       this.dataSource.data = this.eventList; 
     })
+  }
+
+  selectEvent(event: object) {
+    this.router.navigate(['event/61794f90d004178f39d441b2'])
   }
 
 
