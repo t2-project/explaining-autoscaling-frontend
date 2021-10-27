@@ -13,13 +13,17 @@ import { EventsService } from './events/event.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EventsComponent } from './events/events.component';
 import { SetsComponent } from './sets/sets.component';
+import { SetPageComponent } from './set-page/set-page.component';
+import { EventPageComponent } from './event-page/event-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsComponent,
-    SetsComponent
+    SetsComponent,
+    SetPageComponent,
+    EventPageComponent
   ],
   imports: [
     BrowserModule,
