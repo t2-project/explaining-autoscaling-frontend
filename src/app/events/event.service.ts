@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 
 @Injectable()
-export class EventService {
+export class EventsService {
     constructor(private http: HttpClient) {}
 
     getEventList() {

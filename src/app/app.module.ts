@@ -9,13 +9,17 @@ import { MatTableModule } from "@angular/material/table"
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatInputModule } from "@angular/material/input";
-import { EventService } from './event/event.service';
+import { EventsService } from './events/event.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { EventsComponent } from './events/events.component';
+import { SetsComponent } from './sets/sets.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EventsComponent,
+    SetsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatSortModule,
   ],
-  providers: [EventService],
+  providers: [EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

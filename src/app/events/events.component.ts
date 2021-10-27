@@ -1,0 +1,63 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { EventsService } from './event.service';
+
+export interface adaptionEvent {
+  name: string;
+  namespace: string;
+  createdAt: string;
+  reason: string;
+  message: string;
+}
+
+@Component({
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.css']
+})
+export class EventsComponent implements OnInit {
+  displayedColumns: string[] = ['createdAt','name', 'namespace', 'reason', 'message']
+  dataSource: MatTableDataSource<adaptionEvent> = new MatTableDataSource();
+  eventList : any;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+
+  constructor(private eventService: EventsService) {
+    this.loadEvents();
+  }
+  
+  
+  title = 'ba-frontend';
+
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    } }
+
+  loadEvents() {
+    this.eventService.getEventList().subscribe((response) => {
+      this.eventList = response;
+      console.log(response);
+      console.log(this.eventList);
+      this.dataSource = new MatTableDataSource(this.eventList)
+    })
+  }
+
+
+  
+
+}
