@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { EventsService } from './event.service';
 
 export interface adaptionEvent {
+  _id: string;
   name: string;
   namespace: string;
   createdAt: string;
@@ -60,8 +61,9 @@ export class EventsComponent implements OnInit {
     })
   }
 
-  selectEvent(event: object) {
-    this.router.navigate(['event/61794f90d004178f39d441b2'])
+  selectEvent(event: adaptionEvent) {
+    console.log(event)
+    this.router.navigate(['event/' + event._id],{state: {data: event}})
   }
 
 
