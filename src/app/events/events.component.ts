@@ -4,15 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { EventsService } from './event.service';
+import { adaptionEvent } from "src/app/event-interface";
 
-export interface adaptionEvent {
-  _id: string;
-  name: string;
-  namespace: string;
-  createdAt: string;
-  reason: string;
-  message: string;
-}
+
 
 @Component({
   selector: 'app-events',

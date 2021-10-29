@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { adaptionEvent } from "src/app/event-interface";
 
 @Component({
   selector: 'app-event-page',
@@ -7,7 +8,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./event-page.component.css']
 })
 export class EventPageComponent implements OnInit {
-private eventData: any;
+eventData: adaptionEvent;
 
   constructor(private route: ActivatedRoute) { 
     this.route.params.subscribe(params => console.log(params.id))

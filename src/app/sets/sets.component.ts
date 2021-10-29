@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SetsService } from './sets.service';
 
-export interface set {
+export interface eventSet {
   _id: string;
   name: string;
   namespace: string;
@@ -23,8 +23,8 @@ export interface set {
   styleUrls: ['./sets.component.css']
 })
 export class SetsComponent implements OnInit {
-  displayedColumns: string[] = ['firstEvent','latestEvent','name', 'namespace', 'reason', 'count','scalingType']
-  dataSource: MatTableDataSource<set>;
+  displayedColumns: string[] = ['firstEvent','latestEvent','name', 'reason', 'count','scalingType']
+  dataSource: MatTableDataSource<eventSet>;
   setList : any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -41,6 +41,13 @@ export class SetsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    } }
 
   async loadSets() {
     await this.setsService.getSets().subscribe((response) => {
@@ -50,4 +57,6 @@ export class SetsComponent implements OnInit {
       this.dataSource.data = this.setList; 
     })
   }
+
+  selectSet(set: eventSet) {}
 }

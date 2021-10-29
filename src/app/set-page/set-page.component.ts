@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { EventSet } from "src/app/event-set-interface";
 
 @Component({
   selector: 'app-set-page',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set-page.component.css']
 })
 export class SetPageComponent implements OnInit {
+setData : EventSet;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+    this.route.params.subscribe(params => console.log(params.id))
+    this.setData = history.state.data;
+  }
 
   ngOnInit(): void {
   }
