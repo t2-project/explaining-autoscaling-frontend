@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { SetsService } from './sets.service';
 
 export interface eventSet {
@@ -30,7 +31,7 @@ export class SetsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private setsService : SetsService) {
+  constructor(private setsService : SetsService, private router : Router) {
     this.dataSource = new MatTableDataSource();
   }
   ngAfterViewInit() {
@@ -58,5 +59,7 @@ export class SetsComponent implements OnInit {
     })
   }
 
-  selectSet(set: eventSet) {}
+  selectSet(set: eventSet) {
+    this.router.navigate(['set-detail'],{state: {data : set}})
+  }
 }

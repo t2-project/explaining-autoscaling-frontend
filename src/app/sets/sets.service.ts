@@ -9,6 +9,6 @@ export class SetsService {
   constructor(private http: HttpClient) {}
 
   getSets() {
-    return this.http.get('http://localhost:3000/sets');
+    return this.http.get('http://localhost:3000/set');
   }
 }
