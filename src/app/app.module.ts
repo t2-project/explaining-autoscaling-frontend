@@ -10,12 +10,14 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
 import { MatInputModule } from "@angular/material/input";
 import { EventsService } from './events/event.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { EventsComponent } from './events/events.component';
 import { SetsComponent } from './sets/sets.component';
 import { SetPageComponent } from './set-page/set-page.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { MatIconModule } from "@angular/material/icon";
+import { EventsSimpleComponent } from './events-simple/events-simple.component';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { MatIconModule } from "@angular/material/icon";
     EventsComponent,
     SetsComponent,
     SetPageComponent,
-    EventPageComponent
+    EventPageComponent,
+    EventsSimpleComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,8 @@ import { MatIconModule } from "@angular/material/icon";
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [EventsService],
   bootstrap: [AppComponent]

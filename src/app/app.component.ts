@@ -1,6 +1,11 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
+interface Option {
+  value: string;
+  viewValue: string;
+}
+
 export interface adaptionEvent {
   name: string;
   namespace: string;
@@ -17,7 +22,12 @@ export interface adaptionEvent {
 export class AppComponent {
   constructor(private router: Router) {}
 
-  displayEventList() {
-    this.router.navigate(['events'])
+  options: Option[] = [
+    {value: '', viewValue: 'Events'},
+    {value: 'sets', viewValue: 'Sets'},
+  ]
+
+  navigateTo(value: string) {
+    this.router.navigate([value])
   }
 }

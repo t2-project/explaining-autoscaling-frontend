@@ -1,2 +1,10 @@
-<mat-toolbar color="primary">Bachelorarbeit</mat-toolbar>
+<mat-toolbar color="primary">
+    <mat-form-field>
+        <mat-select (selectionChange)="navigateTo($event.value)">
+            <mat-option *ngFor="let option of options" [value]="option.value">
+                {{option.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-toolbar>
 <router-outlet></router-outlet>
