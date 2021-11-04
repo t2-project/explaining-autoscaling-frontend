@@ -11,7 +11,7 @@ import { adaptionEvent } from "src/app/event-interface";
   styleUrls: ['./events-simple.component.css']
 })
 export class EventsSimpleComponent implements OnInit {
-  displayedColumns: string[] = ['createdAt','name', 'namespace', 'reason', 'message']
+  displayedColumns: string[] = ['createdAt','name', 'metricType', 'scalingType', 'replicaSize']
   dataSource: MatTableDataSource<adaptionEvent>;
   eventList : adaptionEvent[];
 

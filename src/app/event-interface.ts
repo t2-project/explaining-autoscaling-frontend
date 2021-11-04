@@ -3,6 +3,10 @@ export interface adaptionEvent {
   name: string;
   namespace: string;
   createdAt: string;
-  reason: string;
   message: string;
+  reason: string;
+  replicaSize: number;
+  scalingType: string;
+  metricType: string;
+  
 }
