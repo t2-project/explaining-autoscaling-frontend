@@ -1,8 +1,30 @@
-<p>{{setName}}</p>
-<p>{{setNamespace}}</p>
-<p>{{firstEvent}}</p>
-<p>{{lastEvent}}</p>
-<p>{{count}}</p>
-<p>{{reason}}</p>
-<p>{{scalingType}}</p>
+<div>
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput disabled value={{setName}}>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>First Event</mat-label>
+        <input matInput disabled value={{firstEvent}}>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Last Event</mat-label>
+        <input matInput disabled value={{lastEvent}}>
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field appearance="outline">
+        <mat-label>Metric type</mat-label>
+        <input matInput disabled value={{reason}}>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Scaling type</mat-label>
+        <input matInput disabled value={{scalingType}}>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Count</mat-label>
+        <input matInput disabled value={{count}}>
+    </mat-form-field>
+</div>
 <app-events-simple></app-events-simple>
