@@ -25,6 +25,8 @@ export class AppComponent {
   options: Option[] = [
     {value: '', viewValue: 'Events'},
     {value: 'sets', viewValue: 'Sets'},
+    {value: 'metrics', viewValue: 'Metrics'},
+    {value: 'deployments', viewValue: 'Deployments'}
   ]
 
   navigateTo(value: string) {

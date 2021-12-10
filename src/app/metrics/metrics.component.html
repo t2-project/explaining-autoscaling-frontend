@@ -1,0 +1,33 @@
+<div class="center">
+<form class="metrics-form">
+    <mat-form-field class="metrics" appearance="fill">
+        <mat-label>Metric name</mat-label>
+        <input matInput placeholder="Ex. cpu">
+    </mat-form-field>
+
+    <mat-form-field class="metrics" appearance="fill">
+        <mat-label>Metric query</mat-label>
+        <input matInput placeholder="Ex. container_cpu_usage_seconds">
+    </mat-form-field>
+
+</form>
+<button mat-raised-button color="primary">Add metric</button>
+<table mat-table [dataSource]="dataSource" class="metrics-table">
+
+    <!-- Query Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Metric name</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="query">
+    <th mat-header-cell *matHeaderCellDef> Metric query </th>
+    <td mat-cell *matCellDef="let element"> {{element.query}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</div>

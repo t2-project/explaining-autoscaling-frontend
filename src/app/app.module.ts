@@ -18,6 +18,9 @@ import { EventPageComponent } from './event-page/event-page.component';
 import { MatIconModule } from "@angular/material/icon";
 import { EventsSimpleComponent } from './events-simple/events-simple.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MetricsComponent } from './metrics/metrics.component';
+import { DeploymentsComponent } from './deployments/deployments.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { MatSelectModule } from '@angular/material/select';
     SetsComponent,
     SetPageComponent,
     EventPageComponent,
-    EventsSimpleComponent
+    EventsSimpleComponent,
+    MetricsComponent,
+    DeploymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatButtonModule
   ],
   providers: [EventsService],
   bootstrap: [AppComponent]
